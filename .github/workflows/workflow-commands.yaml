@@ -18,3 +18,14 @@ jobs:
               run: echo "::warning title=Warning Title,file=app1.js,line=1,col=1::Semicolon missing"
             - name: setting notice variable 
               run: echo "::notice title=Notice Title,file=app1.js,line=1,col=1::Semicolon missing"
+            - name: Group of logs
+              run: |
+                echo "::group::My Group"
+                echo "inside my group"
+                echo "::endgroup::"
+            - name: masking a secret
+              run: |
+                echo "::add-mask::my_secret_value"
+                echo "The secret is my_secret_value"
+            - name: masked value
+              run: echo "masked value is my_secret_value"
