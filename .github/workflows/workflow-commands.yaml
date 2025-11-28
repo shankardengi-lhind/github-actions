@@ -10,4 +10,6 @@ jobs:
               run: echo "Hello, Workflow Commands!"
             - name: setting error code
               run: echo "::error::this is a simulated error message"
+            - name: setting error variable 
+              run: echo "::error title=Error Title,file=app.js,line=1,col=1::Semicolon missing"
             
