@@ -1,0 +1,11 @@
+name: Workflow Commands Example
+on: [push]
+
+
+jobs:
+    testing-wf-commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: testing workflow commands
+              run: echo "Hello, Workflow Commands!"
+            
