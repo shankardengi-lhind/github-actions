@@ -8,4 +8,6 @@ jobs:
         steps:
             - name: testing workflow commands
               run: echo "Hello, Workflow Commands!"
+            - name: setting error code
+              run: echo "::error::this is a simulated error message"
             
