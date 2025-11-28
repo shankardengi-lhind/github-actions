@@ -12,4 +12,9 @@ jobs:
               run: echo "::error::this is a simulated error message"
             - name: setting error variable 
               run: echo "::error title=Error Title,file=app1.js,line=1,col=1::Semicolon missing"
-            
+            - name: setting debug variable 
+              run: echo "::debug title=Debug Title,file=app1.js,line=1,col=1::Semicolon missing"
+            - name: setting Warning variable 
+              run: echo "::warning title=Warning Title,file=app1.js,line=1,col=1::Semicolon missing"
+            - name: setting notice variable 
+              run: echo "::notice title=Notice Title,file=app1.js,line=1,col=1::Semicolon missing"
