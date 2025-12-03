@@ -1,5 +1,8 @@
 name: Working Directory and Shells
 on: [push]
+defaults:
+  run:
+      shell: bash
 jobs:
     display-working-directory-info:
         runs-on: ubuntu-latest
@@ -21,3 +24,33 @@ jobs:
                 echo $GITHUB_SHA
                 echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACE
+    display-working-directory-info-windows-powershell:
+        runs-on: windows-latest
+        defaults:
+          run:
+            shell: pwsh
+        steps:
+            - name: disolay working directory and info
+              run: |
+                get-location
+                dir
+                echo $env:GITHUB_SHA
+                echo $env:GITHUB_REPOSITORY
+                echo $env:GITHUB_WORKSPACE
+            - name: run python script
+              run: |
+                temp = "hello from python"
+                print(f"{temp} in powershell")
+    display-change-working-directory:
+        runs-on: ubuntu-latest
+        
+        defaults:
+          run:
+            shell: bash
+            working-directory: /home/runner/work/
+        steps:
+            - name: display current working directory after changing it
+              run: |
+                pwd
+                ls -a
+            
