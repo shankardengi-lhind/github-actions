@@ -1,0 +1,23 @@
+name: Working Directory and Shells
+on: [push]
+jobs:
+    display-working-directory-info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: disolay working directory and info
+              run: |
+                pwd
+                ls -a
+                echo $GITHUB_SHA
+                echo $GITHUB_REPOSITORY
+                echo #GITHUB_WORKSPACE
+    display-working-directory-info-windows:
+        runs-on: windows-latest
+        steps:
+            - name: disolay working directory and info
+              run: |
+                pwd
+                ls -a
+                echo $GITHUB_SHA
+                echo $GITHUB_REPOSITORY
+                echo #GITHUB_WORKSPACE
