@@ -38,6 +38,7 @@ jobs:
                 echo $env:GITHUB_REPOSITORY
                 echo $env:GITHUB_WORKSPACE
             - name: run python script
+              shell: python
               run: |
                 temp = "hello from python"
                 print(f"{temp} in powershell")
