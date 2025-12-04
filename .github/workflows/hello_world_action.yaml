@@ -10,4 +10,4 @@ jobs:
         with:
           who-to-greet: "shankar"
       - name: Display output log
-        run: echo "The action greeted at ${{steps.shankar-id.outputs}}"
+        run: echo "The action greeted at ${{steps.shankar-id.outputs.time}}"
