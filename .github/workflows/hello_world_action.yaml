@@ -1,0 +1,13 @@
+name: Hello World Action
+on: [push]
+jobs:
+  hello-world-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello using action
+        id: shankar-id
+        uses: actions/hello-world-javascript-action@ebdda30dcb464fa90dc49c837d7b5506f49932d0
+        with:
+          who-to-greet: "shankar"
+      - name: Display output log
+        run: echo "The action greeted at ${{steps.shankar-id.outputs}}"
