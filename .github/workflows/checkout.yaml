@@ -9,13 +9,13 @@ jobs:
         - name: diplay list of files
           run : ls -a
         - name: display git hub actor
-          run: echo $git-hub_actor
+          run: echo $github_actor
         - name: github token
           run: echo ${{ secrets.TOKEN}}
         - name: checkout code
           run: |
             git init
-            git remote add origin https://git-hub_actor:${{secrets.TOKEN}}/@github.com/$GITHUB_REPOSITORY.git
+            git remote add origin "https://github_actor:${{secrets.TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
             git fetch origin
             git checkout main
 
