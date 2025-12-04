@@ -1,0 +1,15 @@
+name: Checkout Repository
+on: [push]
+jobs:
+    checkout_repository:
+      runs-on: ubuntu-latest
+      steps:
+        - name: display working directory
+          run: pwd
+        - name: diplay list of files
+          run : ls -a
+        - name: display git hub actor
+          run: echo $git-hub_actor
+        - name: github token
+          run: echo ${{ secrets.TOKEN}}
+        
