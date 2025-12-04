@@ -1,4 +1,4 @@
-name: Checkout Actions
+name: Checkout Actions test
 on: [push]
 jobs:
   Checkout_Action_job:
