@@ -4,7 +4,7 @@ jobs:
   Checkout_Action_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Display Current working directory
+      - name: Display Current working directorys
         run: pwd
       - name: List files before Checkout
         run: ls -a
