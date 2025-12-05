@@ -1,5 +1,5 @@
 name: GitHub Event Workflow
-on: [push]
+on: [push, pull_request]
 jobs:
     github-event-job:
       runs-on: ubuntu-latest
