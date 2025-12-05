@@ -25,5 +25,5 @@ jobs:
           run: ls -a
         - name: Checkout Repository
           uses: actions/checkout@v3
-        - name: Display files after checkout
+        - name: Display files after checkouts
           run: ls -a
