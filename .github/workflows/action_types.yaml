@@ -1,0 +1,16 @@
+name: Action Types Pull Request and Issue
+on:
+  pull_request:
+    types: [opened,assigned,closed]
+  push:
+  issues:
+    types: [opened]
+jobs:
+  action_types_job_pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display parameters github
+        run: |
+           echo $GITHUB_SHA
+           echo $GITHUB_REF
+      - uses: actions/checkout@v3
