@@ -9,7 +9,7 @@ jobs:
   action_types_job_pull:
     runs-on: ubuntu-latest
     steps:
-      - name: display parameters github
+      - name: display parameters githubs
         run: |
            echo $GITHUB_SHA
            echo $GITHUB_REF
