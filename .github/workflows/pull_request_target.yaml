@@ -15,7 +15,7 @@ jobs:
       - name: comment on new pull requests
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN }}
           script: |
             github.rest.issues.createComment({
                 issue_number: context.issue.number,
