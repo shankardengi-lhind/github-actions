@@ -6,7 +6,7 @@ jobs:
   pull-request-target-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Display parameters
+      - name: Display parametersS
         run: |
           echo $GITHUB_SHA
           echo $GitHUB_REF
