@@ -12,7 +12,7 @@ jobs:
           echo $GitHUB_REF
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - name: comment on new pull requests
+      - name: comment on new pull requestss
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.TOKEN}}
