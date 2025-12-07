@@ -1,0 +1,24 @@
+name: Pull Request Target
+on:
+  pull_request_target:
+    types: [opened,closed]
+jobs:
+  pull-request-target-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display parameters
+        run: |
+          echo $GITHUB_SHA
+          echo $GitHUB_REF
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: comment on new pull request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: "Thank you for your pull request! We will review it shortly."
+                })
