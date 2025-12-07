@@ -10,7 +10,7 @@ jobs:
         run: |
           echo $GITHUB_SHA
           echo $GitHUB_REF
-      - name: Checkout Repository
+      - name: Checkout RepositoryS
         uses: actions/checkout@v3
       - name: comment on new pull requestss
         uses: actions/github-script@v6
