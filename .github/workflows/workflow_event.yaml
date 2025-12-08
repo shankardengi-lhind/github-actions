@@ -1,5 +1,8 @@
 name: Workflow Event
 on: 
+  push:
+    branches:
+      - feature/*
   workflow_run:
     workflows: ["GitHub Action Target Branch"]
     types: [completed]
