@@ -7,7 +7,7 @@ jobs:
   github-action-target-workflow-job:
     runs-on: ubuntu-latest
     steps:
-       - name: Display Workflow Run Informations
+       - name: Display Workflow Run Informationssss
          run: |
           echo "The workflow run for this action is $GITHUB_WORKFLOW"
           echo "The event that triggered this workflow is $GITHUB_EVENT_NAME"
