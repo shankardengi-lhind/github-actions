@@ -7,7 +7,7 @@ jobs:
   github-action-target-branch-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Display Target Branch Namesssss
+      - name: Display Target Branch Nam
         run: |
           echo "The target branch for this action is $GITHUB_REF"
       - name: Display Commit SHA
