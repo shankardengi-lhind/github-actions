@@ -1,7 +1,7 @@
 name: Workflow Event
 on: 
   workflow_run:
-    workflow: Pull Request Target
+    workflows: [Pull Request Target]
     types: [completed,failed]
 jobs:
   workflow_event_job:
