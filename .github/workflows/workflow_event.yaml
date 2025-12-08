@@ -1,7 +1,7 @@
 name: Workflow Event
 on: 
   workflow_run:
-    workflows: [GitHub Action Target Branch]
+    workflows: ["GitHub Action Target Branch"]
     types: [completed]
 jobs:
   workflow_event_job:
