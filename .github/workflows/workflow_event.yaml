@@ -13,7 +13,4 @@ jobs:
       - name: display running after pull target action
         run: |
           echo "running after the pull target action"
-      - name: displaying current branch reference and commit code...
-        run: |
-          echo "current refrence is $GITHUB_REF"
-          echo "current sha is $GITHUB_SHA"
+      
