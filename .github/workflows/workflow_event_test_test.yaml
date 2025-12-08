@@ -1,0 +1,11 @@
+name: workflow_event_test3
+on:
+  workflow_run:
+    workflows: ["workflow_event_test3"]
+    types: [completed]
+jobs:
+    workflow_event_test3_job:
+       runs-on: ubuntu-latest
+       steps:
+          - name: display running after workflow event
+            run: echo "printing after workflow -event test 2"
