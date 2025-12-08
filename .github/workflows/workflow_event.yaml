@@ -1,0 +1,16 @@
+name: Workflow Event
+on: 
+  push:
+    branches:
+      - feature/*
+  workflow_run:
+    workflows: ["GitHub Action Target Branch"]
+    types: [completed]
+jobs:
+  workflow_event_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display running after pull target action
+        run: |
+          echo "running after the pull target action"
+      
