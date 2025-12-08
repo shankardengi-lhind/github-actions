@@ -2,7 +2,7 @@ name: Workflow Event
 on: 
   workflow_run:
     workflows: [GitHub Action Target Branch]
-    types: [completed,failed]
+    types: [completed]
 jobs:
   workflow_event_job:
     runs-on: ubuntu-latest
