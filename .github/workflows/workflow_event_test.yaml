@@ -1,10 +1,10 @@
-name: workflow_event_test3
+name: workflow_event_test2
 on:
   workflow_run:
     workflows: ["Workflow Event"]
     types: [completed]
 jobs:
-    workflow_event_test3_job:
+    workflow_event_test2_job:
       runs-on: ubuntu-latest
       steps:
         - name: display running after workflow event action

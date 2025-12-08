@@ -1,7 +1,7 @@
-name: workflow_event_test3
+name: workflow_event_test
 on:
   workflow_run:
-    workflows: ["workflow_event_test3"]
+    workflows: ["workflow_event_test2"]
     types: [completed]
 jobs:
     workflow_event_test3_job:
