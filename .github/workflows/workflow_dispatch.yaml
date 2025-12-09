@@ -29,7 +29,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: display string input
-          run: echo ${{ inputs.string_input }}
+          run: echo "displaying string ${{ inputs.string_input }}"
         - name: display boolean input
           run: echo ${{ inputs.boolean_input }}
         - name: display optional input
