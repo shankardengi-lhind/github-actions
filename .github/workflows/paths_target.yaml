@@ -1,13 +1,13 @@
-name: GitHub Action Target Branch
+name: paths_target
 on:
   push:
     paths:
-      - '.github/workflows/github_action_target_branch.yaml'
+      - '.github/workflows/paths_target.yaml'
 jobs:
   github-action-target-branch-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Display Target Branch Namessss
+      - name: Display Target Branch Nam
         run: |
           echo "The target branch for this action is $GITHUB_REF"
       - name: Display Commit SHA
