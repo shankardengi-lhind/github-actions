@@ -1,0 +1,10 @@
+name: Repository Dispatch Dual Test
+on:
+  repository_dispatch:
+    types: [default]
+jobs:
+  repository-dispatch-dual-test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name : echo the event is triggered
+        run: echo "event is triggered"
