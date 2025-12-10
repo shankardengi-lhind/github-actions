@@ -1,0 +1,12 @@
+name: Repository Dispatch
+on: 
+  repository_dispatch:
+     types: [default]
+
+jobs:
+  repository-dispatch-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo the event is triggered
+        run: echo "event is triggered"
+       
