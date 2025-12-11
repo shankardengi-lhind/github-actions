@@ -1,0 +1,18 @@
+name: Action Stale
+on:
+   schedule:
+     - cron: '1-59 * * * *'
+jobs:
+  action-stale-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo the action stale is triggered
+        run: echo "action stale is triggered"
+      - name: stale action
+        uses: actions/stale@v6
+        with:
+            days-before-stale: 1
+            days-before-close: 2
+            stale-issue-message: 'This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs.'
+            close-issue-message: 'This issue has been automatically closed because it has been stale for a while.'
+            
