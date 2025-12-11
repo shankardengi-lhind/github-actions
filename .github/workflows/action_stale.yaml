@@ -1,12 +1,14 @@
 name: Action Stale
 on:
+   workflow_dispatch:
    schedule:
      - cron: '1-59 * * * *'
+     - cron: '0/2 * * * *'
 jobs:
   action-stale-job:
     runs-on: ubuntu-latest
     steps:
-      - name: echo the action stale is triggereds
+      - name: echo the action stale is triggered
         run: echo "action stale is triggered"
       - name: stale action
         uses: actions/stale@v6
