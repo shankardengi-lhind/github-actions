@@ -13,6 +13,10 @@ jobs:
             echo ${{ true }}
             echo ${{ true && false }}
             echo ${{ true || (true && false) }}
+      - name: steps test
+        id: steps-test
+        run : |
+            echo "::set-output name=step-output::hello from step"
       - name: github context
         id: github-context
         run: |
