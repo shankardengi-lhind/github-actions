@@ -1,0 +1,43 @@
+name: Expression Context Workflow
+on: [push, pull_request,workflow_dispatch,issues]
+run-name: Expression Context Run by ${{ github.actor}} on ${{ github.event_name}} for commit messege ${{github.event.head_commit.message}}
+jobs:
+  expression-context-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Below are expresion on objects 
+        id: expression-step
+        run: |
+            echo ${{ 4 }}
+            echo ${{ 4 < 5 }}
+            echo ${{ null }}
+            echo ${{ true }}
+            echo ${{ true && false }}
+            echo ${{ true || (true && false) }}
+            echo "shankar = hellow from shanakar" >> $GITHUB_OUTPUT
+            echo "shankar = hellows from shankar" >> $GITHUB_OUTPUT
+      - name: steps test
+        id: steps-test
+        run : |
+            echo "::set-output name=step-output::hello from step"
+      - name: steps test2
+        id: steps-test2
+        run : |
+            echo "tesing2key = hellos test2 from shankar" >> $GITHUB_OUTPUT
+            echo "testing3key = hellos test3 ">>  $GITHUB_OUTPUT
+      - name: github context
+        id: github-context
+        run: |
+            echo ${{ '-----------------------------------------github-------------------------------' }}
+            echo '${{ toJson(github) }}'
+            echo ${{ '-----------------------------------------secrets -------------------------------' }}
+            echo "${{ toJson(secrets) }}"
+            echo ${{ '-----------------------------------------steps-------------------------------' }}
+            echo "${{toJson(steps)}}"
+            echo ${{ '-----------------------------------------runner--------------------------------'}}
+            echo "${{toJson(runner)}}"
+            echo ${{ '--------------------------------------ENV----------------------------'}}
+            echo "${{toJson(env)}}"
+            echo ${{ '--------------------------------------github-output----------------------------'}}
+            echo $GITHUB_OUTPUT
+
