@@ -14,7 +14,7 @@ jobs:
             echo ${{ true && false }}
             echo ${{ true || (true && false) }}
             echo "shankar = hellow from shanakar" >> $GITHUB_OUTPUT
-            echo "shankar = hellows from shankar"
+            echo "shankar = hellows from shankar" >> $GITHUB_OUTPUT
       - name: steps test
         id: steps-test
         run : |
