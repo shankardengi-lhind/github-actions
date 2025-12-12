@@ -13,7 +13,7 @@ jobs:
             echo ${{ true }}
             echo ${{ true && false }}
             echo ${{ true || (true && false) }}
-            echo "::set-output  hello world from shankar "
+            echo "::set-output  ::hello world from shankar "
       - name: steps test
         id: steps-test
         run : |
