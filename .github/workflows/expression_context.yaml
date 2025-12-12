@@ -1,5 +1,5 @@
 name: Expression Context Workflow
-on: [push, pull_request,workflow_dispatch]
+on: [push, pull_request,workflow_dispatch,issues]
 run-name: Expression Context Run by ${{ github.actor}} on ${{ github.event_name}} for commit messege ${{github.event.head_commit.message}}
 jobs:
   expression-context-job:
