@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Below are expresion on objects 
+        id: expression-step
         run: |
             echo ${{ 4 }}
             echo ${{ 4 < 5 }}
@@ -13,6 +14,7 @@ jobs:
             echo ${{ true && false }}
             echo ${{ true || (true && false) }}
       - name: github context
+        id: github-context
         run: |
             echo ${{ '-----------------------------------------github-------------------------------' }}
             echo '${{ toJson(github) }}'
@@ -20,4 +22,6 @@ jobs:
             echo "${{ toJson(secrets) }}"
             echo ${{ '-----------------------------------------steps-------------------------------' }}
             echo "${{toJson(steps)}}"
-            
+            echo ${{ '-----------------------------------------runner--------------------------------'}}
+            echo "${{toJson(runner)}}"
+
