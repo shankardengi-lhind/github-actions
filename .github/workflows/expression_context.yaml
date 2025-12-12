@@ -13,7 +13,7 @@ jobs:
             echo ${{ true }}
             echo ${{ true && false }}
             echo ${{ true || (true && false) }}
-            echo "::set-output  name=expression-output::hello world from shankar "
+            echo "shankar = hellow from shanakar" >> $GITHUB_OUTPUT
       - name: steps test
         id: steps-test
         run : |
@@ -29,4 +29,8 @@ jobs:
             echo "${{toJson(steps)}}"
             echo ${{ '-----------------------------------------runner--------------------------------'}}
             echo "${{toJson(runner)}}"
+            echo ${{ '--------------------------------------ENV----------------------------'}}
+            echo "${{toJson(env)}}"
+            echo ${{ '--------------------------------------github-output----------------------------'}}
+            echo $GITHUB_OUTPUT
 
