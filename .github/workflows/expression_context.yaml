@@ -1,0 +1,18 @@
+name: Expression Context Workflow
+on: [push, pull_request,orkflow_dispatch]
+jobs:
+  expression-context-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Below are expresion on objects 
+        run: |
+            echo ${{ 4 }}
+            echo ${{ 4 < 5 }}
+            echo ${{ null }}
+            echo ${{ true }}
+            echo ${{ true && false }}
+            echo ${{ true || (true && false) }}
+      - name: github context
+        run: |
+            echo "github"
+            echo ${{ toJson(github) }}
