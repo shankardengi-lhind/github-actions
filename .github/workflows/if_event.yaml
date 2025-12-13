@@ -19,6 +19,7 @@ jobs:
             echo ${{ 'when push is called in issue event using contains' }}
             echo ${{ 3 > 1 }}
             
+            
   if-push-issue-together-job:
     if: ${{ contains(fromJson('["push","issues"]'), github.event_name) }}
     runs-on: ubuntu-latest
@@ -28,3 +29,8 @@ jobs:
             echo ${{ 'when push or issue is called in push and issue event using contains' }}
             echo ${{ 5 > 1 }}
             echo '${{ toJson(github)}}'
+      - name: Display bug event name from issue
+        if: contains(github.event.issue.labels.*.name, 'bug')
+        run: |
+            echo "The event name for this action is ${{ github.event_name }}"
+            echo ${{ join(github.event.issue.labels.*.name, ', ') }}
