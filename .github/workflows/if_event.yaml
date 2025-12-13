@@ -9,6 +9,7 @@ jobs:
         run: |
             echo ${{ 'when push is called' }}
             echo ${{ 2 > 1 }}
+            echo ${{ toJson(github)}}
   if-issue-event-job:
     if: ${{ contains('push', github.event_name) }}
     runs-on: ubuntu-latest
@@ -26,3 +27,4 @@ jobs:
         run: |
             echo ${{ 'when push or issue is called in push and issue event using contains' }}
             echo ${{ 5 > 1 }}
+            echo ${{ toJson(github)}}
