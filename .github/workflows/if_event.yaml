@@ -27,4 +27,4 @@ jobs:
         run: |
             echo ${{ 'when push or issue is called in push and issue event using contains' }}
             echo ${{ 5 > 1 }}
-            echo ${{ toJson(github)}}
+            echo '${{ toJson(github)}}'
