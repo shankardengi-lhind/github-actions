@@ -28,7 +28,7 @@ jobs:
         run: |
             echo ${{ 'when push or issue is called in push and issue event using contains' }}
             echo ${{ 5 > 1 }}
-            echo '${{ toJson(github)}}'
+
       - name: Display bug event name from issue
         if: contains(github.event.issue.labels.*.name, 'bug')
         run: |
