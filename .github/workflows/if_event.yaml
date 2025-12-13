@@ -17,3 +17,12 @@ jobs:
          run: |
             echo ${{ 'when push is called in issue event using contains' }}
             echo ${{ 3 > 1 }}
+            
+  if-push-issue-together-job:
+    if: ${{ contains(fromJson('["push","issues"]'), github.event_name) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: expressions push and issue event contains
+        run: |
+            echo ${{ 'when push or issue is called in push and issue event using contains' }}
+            echo ${{ 5 > 1 }}
