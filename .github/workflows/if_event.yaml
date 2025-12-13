@@ -32,5 +32,5 @@ jobs:
       - name: Display bug event name from issue
         if: contains(github.event.issue.labels.*.name, 'bug')
         run: |
-            echo "The event name for this action is ${{ github.event_name }}"
+            echo "The event name for this action is "
             echo ${{ join(github.event.issue.labels.*.name, ', ') }}
