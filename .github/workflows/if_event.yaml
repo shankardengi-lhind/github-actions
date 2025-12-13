@@ -1,0 +1,19 @@
+name: If Event
+on: [push, pull_request, issues, workflow_dispatch]
+jobs:
+  if-event-job:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: expresssions test
+        run: |
+            echo ${{ 'when push is called' }}
+            echo ${{ 2 > 1 }}
+  if-issue-event-job:
+    if: ${{ contains('push', github.event_name) }}
+    runs-on: ubuntu-latest
+    steps:
+       - name: expressions push event contains
+         run: |
+            echo ${{ 'when push is called in issue event using contains' }}
+            echo ${{ 3 > 1 }}
