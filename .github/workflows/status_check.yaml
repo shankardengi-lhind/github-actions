@@ -7,6 +7,11 @@ jobs:
       - name: Step1
         id: Step1
         run: sleep 30
+      - name: Step that Fails
+        id: StepThatFails
+        run: |
+            echo "This step will fail."
+            exit 1
       - name: Step2
         id: Step2
         if: failure()
