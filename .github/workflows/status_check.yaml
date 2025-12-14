@@ -14,7 +14,7 @@ jobs:
             exit 1
       - name: Step2
         id: Step2
-        if: failure() && ${{ steps.StepThatFails.conclusion == 'failure' }}
+        if: failure() &&  steps.StepThatFails.conclusion == 'failure' 
         run: |
             echo "This step runs if any previous step failed."
             echo '${{toJson(steps)}}'
