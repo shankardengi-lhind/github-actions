@@ -1,0 +1,38 @@
+name: Status Check
+on: [push, pull_request]
+jobs:
+  status-check-job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step1
+        id: Step1
+        run: sleep 30
+      - name: Step2
+        id: Step2
+        if: failure()
+        run: |
+            echo "This step runs if any previous step failed."
+            echo '${{toJson(steps)}}'
+      - name: Step3
+        if: success()
+        run: |
+            echo "This step runs if all previous steps succeeded."
+            echo '${{toJson(steps)}}'
+
+      - name: Step4
+        if: always()
+        run: |
+            echo "This step runs regardless of previous step outcomes."
+            echo '${{toJson(steps)}}'
+      - name: Step5
+        if: cancelled()
+        run: |
+            echo "This step runs if the workflow was cancelled."
+            echo '${{toJson(steps)}}'
+  status-check-job2:
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+       - name: Previous Job Failed
+         run: echo "This job runs if the previous job failed."
+         
