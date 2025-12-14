@@ -14,7 +14,7 @@ jobs:
             exit 1
       - name: Step2
         id: Step2
-        if: ${{ steps.StepThatFails.conclusion == 'failure' }}
+        if: failure() && ${{ steps.StepThatFails.conclusion == 'failure' }}
         run: |
             echo "This step runs if any previous step failed."
             echo '${{toJson(steps)}}'
@@ -36,6 +36,7 @@ jobs:
             echo '${{toJson(steps)}}'
   status-check-job2:
     runs-on: ubuntu-latest
+    needs: status-check-job1
     if: failure()
     steps:
        - name: Previous Job Failed
