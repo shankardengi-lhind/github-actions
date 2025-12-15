@@ -1,5 +1,7 @@
 name: Set up environment variables
 on: [push]
+env:
+    GLOBAL_ENV_VAR: "This is a global environment variable"
 jobs:
   set-env-variables-job:
     runs-on: ubuntu-latest
@@ -21,3 +23,13 @@ jobs:
         if: env.MY_CUSTOM_ENV_VAR == 'refs/heads/feature/pull_target'
         run: |
                 echo "This run is for the feature/pull_target branch"
+      - name: display environemnt varibables step level
+        env:
+          STEP_LEVEL_ENV_VAR: "This is a step level environment variable"
+        run: |
+            echo $STEP_LEVEL_ENV_VAR
+            echo $GLOBAL_ENV_VAR
+            echo ${{ env.MY_CUSTOM_ENV_VAR }}
+            echo ${{env.STEP_LEVEL_ENV_VAR}}
+            echo ${{ env.GLOBAL_ENV_VAR }}
+            echo "The branch ref is ${{ env.MY_CUSTOM_ENV_VAR }}"
