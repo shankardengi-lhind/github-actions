@@ -3,6 +3,8 @@ on: [push]
 jobs:
   set-env-variables-job:
     runs-on: ubuntu-latest
+    env:
+      MY_CUSTOM_ENV_VAR: ${{github.ref}}
     steps:
       - name: display environment variables
         run: |
@@ -15,3 +17,7 @@ jobs:
               echo ${{ github.repository }}
               echo ${{ github.sha }}
               echo ${{ github.ref }}
+      - name: run this only when feature refs/heads/feature/pull_target
+        if: env.MY_CUSTOM_ENV_VAR == 'refs/heads/feature/pull_target'
+        run: |
+                echo "This run is for the feature/pull_target branch"
