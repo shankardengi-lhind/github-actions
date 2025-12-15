@@ -33,3 +33,4 @@ jobs:
             echo ${{env.STEP_LEVEL_ENV_VAR}}
             echo ${{ env.GLOBAL_ENV_VAR }}
             echo "The branch ref is ${{ env.MY_CUSTOM_ENV_VAR }}"
+            echo " the branch ref using environment variable is $MY_CUSTOM_ENV_VAR"
