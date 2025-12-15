@@ -1,0 +1,17 @@
+name: Set up environment variables
+on: [push]
+jobs:
+  set-env-variables-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display environment variables
+        run: |
+            echo $GITHUB_REPOSITORY
+            echo $GITHUB_SHA
+            echo $GITHUB_REF
+      - name: display context variable
+        run: |
+              echo '${{github.sha}}'
+              echo ${{ github.repository }}
+              echo ${{ github.sha }}
+              echo ${{ github.ref }}
