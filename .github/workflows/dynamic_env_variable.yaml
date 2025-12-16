@@ -40,7 +40,5 @@ jobs:
           run: |
             echo "Random Joke: $RANDOM_JOKE"
             echo "Random Joke using context: ${{env.RANDOM_JOKE }}"
-            echo "displaying all environment variables"
-            echo ${{ toJson(env) }}
             echo printing GITHUB_ENV file content
             echo ${GITHUB_ENV}
