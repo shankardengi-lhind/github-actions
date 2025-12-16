@@ -42,3 +42,6 @@ jobs:
             echo "Random Joke using context: ${{env.RANDOM_JOKE }}"
             echo printing GITHUB_ENV file content
             echo ${GITHUB_ENV}
+        - name: Display Delimeter
+          run: |
+            echo "Delimiter used: $DELIMITER"
