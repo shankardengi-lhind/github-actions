@@ -30,11 +30,11 @@ jobs:
             echo "Overridden Global Environment Variable using context: ${{ env.GLOBAL_ENV_VAR }}"
         - name: Defining Runtime multipstring variable
           run: |
-            DELIMITER=1234
-            echo "RANDOM_JOKE<<$DELIMITER" >> $GITHUB_ENV
+            TEST=1234
+            echo "RANDOM_JOKE<<$TEST" >> $GITHUB_ENV
             echo "Why do programmers prefer dark mode? Because light attracts bugs!" >> $GITHUB_ENV
             echo "One more record" >> $GITHUB_ENV
-            echo "$DELIMITER" >> $GITHUB_ENV
+            echo "$TEST" >> $GITHUB_ENV
 
         - name: Display runtime multi string variable
           run: |
