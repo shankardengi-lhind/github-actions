@@ -1,0 +1,46 @@
+name: Dynamic Environment Variable Workflow
+on: [push, workflow_dispatch]
+env:
+  GLOBAL_ENV_VAR: "This is a global environment variable"
+jobs:
+  dynamic-env-variable-job:
+    env:
+      JOB_ENV_VAR: "This is a job-specific environment variable"
+    runs-on: ubuntu-latest
+    steps:
+        - name: Display environment variables
+          env:
+            STEP_ENV_VAR: "This is a step-specific environment variable"
+          run: |
+            echo "Global Environment Variable: $GLOBAL_ENV_VAR"
+            echo "Job Environment Variable: $JOB_ENV_VAR"
+            echo "Step Environment Variable: $STEP_ENV_VAR"
+            echo "Global Environment Variable using context: ${{ env.GLOBAL_ENV_VAR }}"
+            echo "Job Environment Variable using context: ${{ env.JOB_ENV_VAR }}"
+            echo "Step Environment Variable using context: ${{ env.STEP_ENV_VAR }}"
+        - name: defining enivronment vaiable durning runtime
+          run: |
+            echo "RUNTIME_ENV_VAR=This is a runtime defined environment variable" >> $GITHUB_ENV
+            echo "GLOBAL_ENV_VAR= Overridden global environment variable in steps" >> $GITHUB_ENV
+        - name: Display runtime defined environment variable
+          run: |
+            echo "Runtime Defined Environment Variable: $RUNTIME_ENV_VAR"
+            echo "Overridden Global Environment Variable: $GLOBAL_ENV_VAR"
+            echo "Runtime Defined Environment Variable using context: ${{ env.RUNTIME_ENV_VAR }}"
+            echo "Overridden Global Environment Variable using context: ${{ env.GLOBAL_ENV_VAR }}"
+        - name: Defining Runtime multipstring variable
+          run: |
+            delimeter = 1234
+            echo "RANDOM_JOKE<<$delimeter" >> $GITHUB_ENV
+            echo "Why do programmers prefer dark mode? Because light attracts bugs!" >> $GITHUB_ENV
+            echo "One more record" >> $GITHUB_ENV
+            echo "$delimiter" >> $GITHUB_ENV
+
+        - name: Display runtime multi string variable
+          run: |
+            echo "Random Joke: $RANDOM_JOKE"
+            echo "Random Joke using context: ${{env.RANDOM_JOKE }}"
+            echo "displaying all environment variables"
+            echo ${{ toJson(env) }}
+            echo printing GITHUB_ENV file content
+            echo ${GITHUB_ENV}
