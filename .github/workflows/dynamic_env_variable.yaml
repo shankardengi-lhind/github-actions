@@ -45,3 +45,4 @@ jobs:
         - name: Display Delimeter
           run: |
             echo "Delimiter used: $DELIMITER"
+            echo "Delimiter used: $TEST"
