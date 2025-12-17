@@ -1,4 +1,4 @@
-name: Set up environment variables
+name: Sc
 on: [push]
 env:
   ENV_LEVEL_VAR : ${{ vars.ENV_LEVEL_VAR }}
@@ -14,4 +14,7 @@ jobs:
       - name: display environemnt variables
         run: |
             echo "ENV_LEVEL_VAR is $ENV_LEVEL_VAR"
-            echo "SECRET is $SECRET
+            echo "runner machine ${{vars.RUNNER}}"
+            echo "SECRET is $SECRET"
+            echo "vars.ENV_LEVEL_VAR :${{ vars.ENV_LEVEL_VAR }}"
+
