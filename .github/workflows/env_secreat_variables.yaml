@@ -1,4 +1,4 @@
-name: env_secreat_variables
+name: env secreat variables
 on: [push]
 env:
   ENV_LEVEL_VAR : ${{ vars.ENV_LEVEL_VAR }}
