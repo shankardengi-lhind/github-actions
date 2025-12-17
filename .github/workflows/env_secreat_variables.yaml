@@ -1,0 +1,17 @@
+name: Set up environment variables
+on: [push]
+env:
+  ENV_LEVEL_VAR : ${{ vars.ENV_LEVEL_VAR }}
+  SECRET : ${{ secrets.BOOLEAN_SECREAT}}
+jobs:
+  set-env-variables-job:
+    runs-on: ${{ vars.RUNNER}}
+    steps:
+      - name: display secrets
+        if: env.SECRET == 'true'
+        run: |
+            echo " secret value is ture ${{ env.SECREAT}}"
+      - name: display environemnt variables
+        run: |
+            echo "ENV_LEVEL_VAR is $ENV_LEVEL_VAR"
+            echo "SECRET is $SECRET
