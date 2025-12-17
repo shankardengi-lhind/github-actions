@@ -7,7 +7,7 @@ jobs:
   set-env-variables-job:
     runs-on: ${{ vars.RUNNER}}
     steps:
-      - name: display secrets
+      - name: display secret
         if: env.SECRET == 'true'
         run: |
             echo " secret value is ture ${{ env.SECREAT}}"
