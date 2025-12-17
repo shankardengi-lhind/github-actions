@@ -7,7 +7,7 @@ env:
 jobs:
   set-env-variables-job:
     runs-on: ${{ vars.RUNNER}}
-    environment: qa
+    environment: dev
     steps:
       - name: display secret
         if: env.SECRET == 'true'
