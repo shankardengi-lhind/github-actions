@@ -7,6 +7,7 @@ env:
 jobs:
   set-env-variables-job:
     runs-on: ${{ vars.RUNNER}}
+    environment: prod
     steps:
       - name: display secret
         if: env.SECRET == 'true'
