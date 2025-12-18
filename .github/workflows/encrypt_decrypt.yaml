@@ -1,0 +1,25 @@
+name: Encrypt and Decrypt Files
+on: [push]
+env:
+  secret: "${{ secrets.SECREAT}}"
+  runner: ${{vars.RUNNER}}
+jobs:
+  encrypt-decrypt-job:
+    runs-on: $runner
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: running simple command
+        run: ls -a
+      - name: display a secret value
+        run: echo "secrets is   $secret"
+      - name: creting directory
+        run: mkdir ./encrypt_decrypt_dir
+      - name: before decrypting conent of directory
+        run : cat secret.json.gpg || echo "file not found"
+      - name: decrypting the file
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="$secret" \
+            --output ./encrypt_decrypt_dir/secret.json ./secret.json.gpg
+      - name: after decrypting content of directory
+        run : cat ./encrypt_decrypt_dir/secret.json || echo "file not found"
