@@ -5,14 +5,14 @@ env:
   runner: ${{vars.RUNNER}}
 jobs:
   encrypt-decrypt-job:
-    runs-on: ${{env.runner}}
+    runs-on: ${{vars.RUNNER}}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: running simple command
         run: ls -a
       - name: display a secret value
-        run: echo "secrets is   $secret"
+        run: echo "secrets is   $secret "
       - name: creting directory
         run: mkdir ./encrypt_decrypt_dir
       - name: before decrypting conent of directory
