@@ -16,7 +16,7 @@ jobs:
       - name: creting directory
         run: mkdir ./encrypt_decrypt_dir
       - name: before decrypting conent of directory
-        run : cat secret.json.gpg || echo "file not found"
+        run : cat secreat.json.gpg || echo "file not found"
       - name: decrypting the file
         run: |
           gpg --quiet --batch --yes --decrypt --passphrase="$secret" \
