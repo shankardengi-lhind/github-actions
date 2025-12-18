@@ -5,7 +5,7 @@ env:
   runner: ${{vars.RUNNER}}
 jobs:
   encrypt-decrypt-job:
-    runs-on: $runner
+    runs-on: ${{env.runner}}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
