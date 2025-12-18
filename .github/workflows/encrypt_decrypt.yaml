@@ -20,6 +20,6 @@ jobs:
       - name: decrypting the file
         run: |
           gpg --quiet --batch --yes --decrypt --passphrase="$secret" \
-            --output ./encrypt_decrypt_dir/secret.json ./secret.json.gpg
+            --output ./encrypt_decrypt_dir/secreat.json ./secret.json.gpg
       - name: after decrypting content of directory
-        run : cat ./encrypt_decrypt_dir/secret.json || echo "file not found"
+        run : cat ./encrypt_decrypt_dir/secreat.json || echo "file not found"
