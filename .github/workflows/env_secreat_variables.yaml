@@ -1,0 +1,23 @@
+name: env secreat variables
+on: [push]
+env:
+  ENV_LEVEL_VAR : ${{ vars.ENV_LEVEL_VAR }}
+  SECRET : ${{ secrets.BOOLEAN_SECREAT}}
+  REPO_LEVEL_VAR : ${{ vars.REPO_LEVEL_VAR }}
+jobs:
+  set-env-variables-job:
+    runs-on: ${{ vars.RUNNER}}
+    environment: dev
+    steps:
+      - name: display secret
+        if: env.SECRET == 'true'
+        run: |
+            echo " secret value is ture ${{ env.SECREAT}}"
+      - name: display environemnt variables
+        run: |
+            echo "ENV_LEVEL_VAR is $ENV_LEVEL_VAR"
+            echo "runner machine ${{vars.RUNNER}}"
+            echo "SECRET is $SECRET"
+            echo "vars.ENV_LEVEL_VAR :${{ vars.ENV_LEVEL_VAR }}"
+            echo "REPO_LEVEL_VAR is $REPO_LEVEL_VAR"
+

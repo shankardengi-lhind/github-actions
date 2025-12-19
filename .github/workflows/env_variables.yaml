@@ -1,0 +1,36 @@
+name: Set up environment variables
+on: [push]
+env:
+    GLOBAL_ENV_VAR: "This is a global environment variable"
+jobs:
+  set-env-variables-job:
+    runs-on: ubuntu-latest
+    env:
+      MY_CUSTOM_ENV_VAR: ${{github.ref}}
+    steps:
+      - name: display environment variables
+        run: |
+            echo $GITHUB_REPOSITORY
+            echo $GITHUB_SHA
+            echo $GITHUB_REF
+      - name: display context variable
+        run: |
+              echo '${{github.sha}}'
+              echo ${{ github.repository }}
+              echo ${{ github.sha }}
+              echo ${{ github.ref }}
+      - name: run this only when feature refs/heads/feature/pull_target
+        if: env.MY_CUSTOM_ENV_VAR == 'refs/heads/feature/pull_target'
+        run: |
+                echo "This run is for the feature/pull_target branch"
+      - name: display environemnt varibables step level
+        env:
+          STEP_LEVEL_ENV_VAR: "This is a step level environment variable"
+        run: |
+            echo $STEP_LEVEL_ENV_VAR
+            echo $GLOBAL_ENV_VAR
+            echo ${{ env.MY_CUSTOM_ENV_VAR }}
+            echo ${{env.STEP_LEVEL_ENV_VAR}}
+            echo ${{ env.GLOBAL_ENV_VAR }}
+            echo "The branch ref is ${{ env.MY_CUSTOM_ENV_VAR }}"
+            echo " the branch ref using environment variable is $MY_CUSTOM_ENV_VAR"
