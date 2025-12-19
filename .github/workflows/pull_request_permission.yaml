@@ -9,7 +9,7 @@ jobs:
   pr_comment:
     runs-on: ubuntu-latest
     steps:
-      - name: comment on new pr
+      - name: comment on new prs
         uses: actions/github-script@v6
         with:
           script: |
