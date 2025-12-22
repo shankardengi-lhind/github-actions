@@ -10,6 +10,7 @@ jobs:
         id: step2
         run: sleep 70
         timeout-minutes: 1
+        continue-on-error: true
       - name: display when sucess
         if : success()
         run: echo "run is sucess"
