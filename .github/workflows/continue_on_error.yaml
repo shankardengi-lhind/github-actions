@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sleep for 10 min
-        run: sleep 30
+        run: sleep 10
       - name: time out error
         id: step2
-        run: sleep 50
+        run: sleep 10
         timeout-minutes: 1
       - name: display when sucess
         if : success()
@@ -18,7 +18,7 @@ jobs:
         run: echo "cancelled"
       - name: always runs
         if : always()
-        run: echo '${{steps}}'
+        run: echo '${{toJson(steps)}}'
       - name: failure
         if : failure()
         run: echo "when it fails"  
