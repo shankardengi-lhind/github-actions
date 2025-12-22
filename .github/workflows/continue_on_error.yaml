@@ -1,5 +1,7 @@
 name: continue on error 
 on: [push]
+permissions:
+    contents: read
 jobs:
   continue_on_error_jobs:
     runs-on: ubuntu-latest
@@ -10,7 +12,6 @@ jobs:
       - name: time out error
         id: step2
         run: sleep 70
-        continue-on-error: false
       - name: display when sucess
         if : success()
         run: echo "run is sucess"
