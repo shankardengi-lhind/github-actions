@@ -22,8 +22,8 @@ jobs:
         if: success() && matrix.minor-version == 14
         run: |
             echo "sleeping for 70 seconds for minor version 14"
-            sleep 70
-        timeout-minutes: 1
+            echo '${{ toJson(matrix) }}'
+    
       - name: Display Matrix Values
         run: |
           echo "Node.js major version: ${{ matrix.major-version }}"
