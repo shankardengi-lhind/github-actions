@@ -9,7 +9,7 @@ jobs:
       matrix:
         major-version: [1, 2, 3]
         minor-version: [14, 16, 18]
-        max-parallel: 2
+        max-parallel:  [2]
         
     steps:
       - name: displaying version of node
