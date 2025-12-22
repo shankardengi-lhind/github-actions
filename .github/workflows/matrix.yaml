@@ -11,8 +11,8 @@ jobs:
         minor-version: [14, 16, 18]
         includes:
           - major-version: 1
-            test-name: 'temp'
-          - experimental: true
+            test-name: true
+          
       #max-parallel:  2
     continue-on-error: true
         
