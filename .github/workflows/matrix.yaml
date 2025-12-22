@@ -12,6 +12,9 @@ jobs:
         includes:
           - major-version: 1
             test-name: 'temp'
+          - major-version: 100
+            minor-version: 200
+            test-name: 'temp2'
       #max-parallel:  2
     continue-on-error: true
         
