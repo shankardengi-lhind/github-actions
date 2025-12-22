@@ -1,9 +1,7 @@
 name: continue on error 
 on: [push]
-permissions:
-  contents: write
 jobs:
-  coninue_on_error_jobs:
+  continue_on_error_jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sleep for 10 min
@@ -19,10 +17,11 @@ jobs:
         if : cancelled()
         run: echo "cancelled"
       - name: always runs
-        if : alwyas()
+        if : always()
         run: echo '${{steps}}'
       - name: failure
         if : failure()
         run: echo "when it fails"  
       - name: failure when its failed
-        if : failure() & 
+        if : failure()
+        run: echo "when it fails"
