@@ -19,11 +19,6 @@ jobs:
     steps:
       - name: displaying version of node
         run: echo " displaying version of node"
-      - name: if minor version is 14
-        if: success() && matrix.minor-version == 14
-        run: |
-            echo "sleeping for 70 seconds for minor version 14"
-            echo '${{ toJson(matrix) }}'
     
       - name: Display Matrix Values
         run: |
