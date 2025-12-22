@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: displaying version of node
         run: echo " displaying version of node"
+      - name: if minor version is 14
+        run: echo '${{toJson(matrix)}}'
       - name: Display Matrix Values
         run: |
           echo "Node.js major version: ${{ matrix.major-version }}"
