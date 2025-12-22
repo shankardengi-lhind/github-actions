@@ -9,6 +9,11 @@ jobs:
       matrix:
         major-version: [1, 2, 3]
         minor-version: [14, 16, 18]
+        includes:
+          - major-version: 1
+            test-name: 'temp'
+          - major-version: 5
+            test-name: 'temp major 5'
       max-parallel:  2
     continue-on-error: true
         
