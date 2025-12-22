@@ -8,7 +8,7 @@ jobs:
         run: sleep 10
       - name: time out error
         id: step2
-        run: sleep 10
+        run: sleep 70
         timeout-minutes: 1
       - name: display when sucess
         if : success()
@@ -23,5 +23,5 @@ jobs:
         if : failure()
         run: echo "when it fails"  
       - name: failure when its failed
-        if : failure()
+        if : failure() && steps.step2.conclusion == 'failure'
         run: echo "when it fails"
