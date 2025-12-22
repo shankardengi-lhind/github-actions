@@ -3,13 +3,13 @@ on: [push]
 jobs:
   continue_on_error_jobs:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: sleep for 10 min
         run: sleep 10
       - name: time out error
         id: step2
         run: sleep 70
-        timeout-minutes: 1
         continue-on-error: true
       - name: display when sucess
         if : success()
