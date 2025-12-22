@@ -12,7 +12,7 @@ jobs:
         includes:
           - major-version: 1
             test-name: true
-          
+          - experimental: true
       #max-parallel:  2
     continue-on-error: true
         
