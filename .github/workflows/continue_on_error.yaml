@@ -1,0 +1,28 @@
+name: continue on error 
+on: [push]
+permissions:
+  contents: write
+jobs:
+  coninue_on_error_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep for 10 min
+        run: sleep 30
+      - name: time out error
+        id: step2
+        run: sleep 50
+        timeout-minutes: 1
+      - name: display when sucess
+        if : success()
+        run: echo "run is sucess"
+      - name: display whenb cancelled
+        if : cancelled()
+        run: echo "cancelled"
+      - name: always runs
+        if : alwyas()
+        run: echo '${{steps}}'
+      - name: failure
+        if : failure()
+        run: echo "when it fails"  
+      - name: failure when its failed
+        if : failure() & 
