@@ -1,0 +1,17 @@
+name: matrix workflow
+on: [push]
+permissions:
+  contents: read
+jobs:
+  matrix-jobs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+        
+    steps:
+      - name: displaying version of node
+        run: echo " displaying version of node"
+      - name: Display Matrix Values
+        run: |
+          echo "Node.js version: ${{ matrix.node-version }}"
