@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        major-version: [1, 2, 3]
-        minor-version: [14, 16, 18]
+        majversion: [1, 2, 3]
+        minversion: [14, 16, 18]
         includes:
-          - major-version: 123
+          - majversion: 123
             test-name: true
           
       #max-parallel:  2
@@ -22,5 +22,5 @@ jobs:
     
       - name: Display Matrix Values
         run: |
-          echo "Node.js major version: ${{ matrix.major-version }}"
-          echo "Node.js version: ${{ matrix.minor-version }}"
+          echo "Node.js major version: ${{ matrix.majversion }}"
+          echo "Node.js version: ${{ matrix.minversion }}"
