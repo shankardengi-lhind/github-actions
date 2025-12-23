@@ -10,7 +10,7 @@ jobs:
         majversion: [1, 2, 3]
         minversion: [14, 16, 18]
         includes:
-          - majversion: 123
+          - majversion: 4
             test-name: true
           
       #max-parallel:  2
