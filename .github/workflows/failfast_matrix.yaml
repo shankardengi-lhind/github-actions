@@ -12,7 +12,7 @@ jobs:
         include:
           - majversion: 4
             tag-name: true
-      fail-fast: false
+      fail-fast: true
     steps:
       - name: displaying version of node
         run: echo '${{toJson(matrix)}}'
