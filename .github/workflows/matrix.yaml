@@ -24,7 +24,6 @@ jobs:
         exclude:
           - majversion: 2
           - majversion: 1
-            minversion: 14
       #max-parallel:  2
     continue-on-error: true
         
