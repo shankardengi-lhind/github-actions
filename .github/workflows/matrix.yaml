@@ -15,6 +15,11 @@ jobs:
             tag-name: true
           - majversion: 2
             tag-name: true
+          - majversion: 4
+            tag-name: true
+          - majversion: 5
+            minversion: 14
+            tag-name: true
         exclude:
           - majversion: 1
       #max-parallel:  2
