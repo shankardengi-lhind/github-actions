@@ -10,19 +10,12 @@ jobs:
         majversion: [1, 2, 3]
         minversion: [14, 16, 18]
         include:
-          - majversion: 4
-            test-name: true
-          - majversion: 1
-            minversion: 20
-            test-name: true
-          - majversion: 1
-            minversion: 14
-            test-name: false
           - majversion: 3
-            tag-name: false
-          - sample: "sample-value"
-        exclude:
+            minversion: 20
+            tag-name: true
           - majversion: 2
+            tag-name: true
+        exclude:
           - majversion: 1
       #max-parallel:  2
     continue-on-error: true
