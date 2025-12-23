@@ -14,5 +14,8 @@ jobs:
     steps:
       - name: displaying version of node
         run: echo '${{toJson(matrix)}}'
+      - name: Fail if it finds  tag-name true
+        if: matrix.tag-name == true
+        run: exit 1
 
 
