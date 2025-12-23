@@ -18,7 +18,7 @@ jobs:
           - majversion: 1
             minversion: 14
             test-name: false
-          - majversion: 1
+          - majversion: 3
             tag-name: false
           - sample: "sample-value"
         exclude:
