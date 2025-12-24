@@ -1,9 +1,35 @@
 name: Dynamic Matrix CI
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      os:
+        description: 'Operating System'
+        required: true
+        default: 'ubuntu-latest'
+        type: string
+      minversion:
+        description: 'Minor Version'
+        required: true
+        default: '1,2,3'
+        type: string
 permissions:
   contents: read
 jobs:
+  preprocess-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Construct matrix
+        uses: actions/github-script@v6
+        id: construct-matrix
+        with:
+          script: "return {os:context.payload.inputs['os'].split(','),'minversion': context.payload.inputs['minversion'].split(',')}"
+          result-encoding: json
+      - name: display matrix
+        run: |
+          echo ${{ steps.construct-matrix.outputs.os}}
+          echo ${{ steps.construct-matrix.outputs.minversion}}
   dynamic-matrix-jobs:
+
     runs-on: ubuntu-latest
     steps:
       - name: setup output 
@@ -12,11 +38,11 @@ jobs:
       - name: displaying context
         run: echo '${{ toJson(steps)}}'
   matrix-jobs:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         minorversion: [0, 1]
+    runs-on: ${{matrix.os}}
     steps:
       - name: Displaying matrix context
         run: echo '${{ toJson(matrix) }}'
