@@ -1,0 +1,28 @@
+name: continue on error 
+on: [push]
+jobs:
+  continue_on_error_jobs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: sleep for 10 min
+        run: sleep 10
+      - name: time out error
+        id: step2
+        run: sleep 70
+        continue-on-error: false
+      - name: display when sucess
+        if : success()
+        run: echo "run is sucess"
+      - name: display whenb cancelled
+        if : cancelled()
+        run: echo "cancelled"
+      - name: always runs
+        if : always()
+        run: echo '${{toJson(steps)}}'
+      - name: failure
+        if : failure()
+        run: echo "when it fails"  
+      - name: failure when its failed
+        if : failure() && steps.step2.conclusion == 'failure'
+        run: echo "when it fails"

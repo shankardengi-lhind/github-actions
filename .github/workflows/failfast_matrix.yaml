@@ -1,0 +1,23 @@
+name: Fail Fast Matrix
+on: [push]
+permissions:
+  contents: read
+jobs:
+  failfast-matrix-jobs:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        majversion: [1, 2, 3]
+        include:
+          - majversion: 4
+            tag-name: true
+      fail-fast: true
+    steps:
+      - name: displaying version of node
+        run: echo '${{toJson(matrix)}}'
+      - name: Fail if it finds  tag-name true
+        if: matrix.tag-name == true
+        run: exit 1
+
+

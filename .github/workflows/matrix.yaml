@@ -1,0 +1,35 @@
+name: matrix workflow
+on: [push]
+permissions:
+  contents: read
+jobs:
+  matrix-jobs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        majversion: [1, 2, 3]
+        minversion: [14, 16, 18]
+        include:
+          - majversion: 3
+            minversion: 20
+            tag-name: true
+          - majversion: 2
+            tag-name: true
+          - majversion: 4
+            tag-name: true
+          - majversion: 5
+            minversion: 14
+            tag-name: true
+        exclude:
+          - majversion: 1
+      #max-parallel:  2
+    continue-on-error: true
+        
+    steps:
+      - name: displaying version of node
+        run: echo " displaying version of node"
+    
+      - name: Display Matrix Values
+        run: |
+          echo "Node.js major version: ${{ matrix.majversion }}"
+          echo "Node.js version: ${{ matrix.minversion }}"
