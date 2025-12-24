@@ -17,6 +17,8 @@ permissions:
 jobs:
   preprocess-matrix:
     runs-on: ubuntu-latest
+    outputs: 
+        matrix_array: ${{ steps.construct-matrix.outputs.result }}
     steps:
       - name: Construct matrix
         id: construct-matrix
@@ -24,14 +26,8 @@ jobs:
         with:
           script: "return {os:context.payload.inputs['os'].split(','),'minversion': context.payload.inputs['minversion'].split(',')}"
           result-encoding: json
-      - name: displaying context
-        run: echo '${{ toJson(steps)}}'
-      - name: display matrix
-        run: |
-          echo ${{ steps.construct-matrix.outputs.result}}
-          echo ${{ steps.construct-matrix.outputs.minversion}}
   dynamic-matrix-jobs:
-
+    needs: preprocess-matrix
     runs-on: ubuntu-latest
     steps:
       - name: setup output 
@@ -42,9 +38,11 @@ jobs:
   matrix-jobs:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        minorversion: [0, 1]
+        os: ${{toJson(needs.preprocess-matrix.outputs.matrix_array).os}}
+        minorversion: ${{toJson(needs.preprocess-matrix.outputs.matrix_array).minorversion}}
     runs-on: ${{matrix.os}}
     steps:
       - name: Displaying matrix context
         run: echo '${{ toJson(matrix) }}'
+      - name: Displaying job output
+        run: echo '${{toJson(needs)}}'
