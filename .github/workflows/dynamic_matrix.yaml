@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         os: ${{toJson(needs.preprocess-matrix.outputs.matrix_array).os}}
-        minorversion: ${{toJson(needs.preprocess-matrix.outputs.matrix_array).minorversion}}
+        minorversion: ${{toJson(needs.preprocess-matrix.outputs.matrix_array).minversion}}
     runs-on: ${{matrix.os}}
     steps:
       - name: Displaying matrix context
