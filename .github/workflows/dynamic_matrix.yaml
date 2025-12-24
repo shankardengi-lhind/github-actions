@@ -26,16 +26,8 @@ jobs:
         with:
           script: "return {os:context.payload.inputs['os'].split(','),'minversion': context.payload.inputs['minversion'].split(',')}"
           result-encoding: json
-  dynamic-matrix-jobs:
-    needs: preprocess-matrix
-    runs-on: ubuntu-latest
-    steps:
-      - name: setup output 
-        id: id-1
-        run: echo " name = shankar" >> $GITHUB_OUTPUT
-      - name: displaying context
-        run: echo '${{ toJson(steps)}}'
   matrix-jobs:
+    needs: preprocess-matrix
     strategy:
       matrix:
         os: ${{toJson(needs.preprocess-matrix.outputs.matrix_array).os}}
