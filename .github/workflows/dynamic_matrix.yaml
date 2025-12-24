@@ -28,7 +28,7 @@ jobs:
         run: echo '${{ toJson(steps)}}'
       - name: display matrix
         run: |
-          echo ${{ steps.construct-matrix.outputs.os}}
+          echo ${{ steps.construct-matrix.outputs.result}}
           echo ${{ steps.construct-matrix.outputs.minversion}}
   dynamic-matrix-jobs:
 
