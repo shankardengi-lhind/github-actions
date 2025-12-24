@@ -1,0 +1,22 @@
+name: Dynamic Matrix CI
+on: [push]
+permissions:
+  contents: read
+jobs:
+  dynamic-matrix-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup output 
+        id: id-1
+        run: echo " name = shankar" >> $GITHUB_OUTPUT
+      - name: displaying context
+        run: echo '${{ toJson(steps)}}'
+  matrix-jobs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        minorversion: [0, 1]
+    steps:
+      - name: Displaying matrix context
+        run: echo '${{ toJson(matrix) }}'
