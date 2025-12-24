@@ -19,11 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Construct matrix
-        uses: actions/github-script@v6
         id: construct-matrix
+        uses: actions/github-script@v6
         with:
           script: "return {os:context.payload.inputs['os'].split(','),'minversion': context.payload.inputs['minversion'].split(',')}"
           result-encoding: json
+      - name: displaying context
+        run: echo '${{ toJson(steps)}}'
       - name: display matrix
         run: |
           echo ${{ steps.construct-matrix.outputs.os}}
