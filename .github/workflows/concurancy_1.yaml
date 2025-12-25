@@ -1,0 +1,17 @@
+name: Concurrency Test 1
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment"
+        required: true
+        type: environment
+
+jobs:
+  concurrency-test-job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display github action name
+        run : echo "the action is  ${{inputs.environment}}"
+      - name: wait for 30 second
+        run: sleep 30
