@@ -1,5 +1,5 @@
 name: Concurrency Test 2
-run-name: Concurrency 2
+run-name: ${{github.workflow}}-Concurrency 2
 on:
   workflow_dispatch:
     inputs:
@@ -8,7 +8,7 @@ on:
         required: true
         type: environment
 concurrency:
-  group: concurrency 1
+  group: ${{github.workflow}}-concurrency 1
   cancel-in-progress: true
 jobs:
   concurrency-test-job-2:
