@@ -8,7 +8,7 @@ on:
         required: true
         type: environment
 concurrency:
-  group: ${{github.workflow}}-concurrency 1
+  group: ${{github.workflow}}-concurrency1-${{github.ref}}
   cancel-in-progress: true
 jobs:
   concurrency-test-job-2:
