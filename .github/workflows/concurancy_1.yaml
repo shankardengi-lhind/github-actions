@@ -1,4 +1,5 @@
 name: Concurrency Test 1
+run-name: Concurrency 1
 on:
   workflow_dispatch:
     inputs:
