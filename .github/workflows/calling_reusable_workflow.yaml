@@ -1,0 +1,15 @@
+name: Calling Reusable Workflow
+on: 
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Name of the person"
+        required: true
+        type: string
+jobs:
+  call-reusable-workflow:
+    uses: /shankardengi-lhind/calling_repo/.github/workflows/reusable_workflow.yaml@main
+    with:
+      name: ${{ inputs.name }}
+    secrets:
+      access-token: ${{ secrets.access-token }}
