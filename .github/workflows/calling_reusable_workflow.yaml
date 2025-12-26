@@ -8,7 +8,7 @@ on:
         type: string
 jobs:
   call-reusable-workflow:
-    uses: /shankardengi-lhind/calling_repo/.github/workflows/reusable_workflow.yaml@main
+    uses: shankardengi-lhind/calling_repo/.github/workflows/reusable_workflow.yaml@main
     with:
       name: ${{ inputs.name }}
     secrets:
