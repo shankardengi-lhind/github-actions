@@ -1,0 +1,25 @@
+name: workflow output
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: name of of person
+        type: string
+    outputs:
+      date:
+        value: ${{jobs.workflow_output.outputs.date}}
+jobs:
+  workflow_nested:
+    uses: shankardengi-lhind/calling_repo/.github/workflows/reusable_workflow.yaml@main
+    with:
+      name: ${{ inputs.name }}
+    secrets:
+      access-token: ${{ secrets.access_token }}
+  workflow_output:
+    runs-on: ubuntu-latest
+    outputs: 
+      date: ${{steps.date_step.outputs.date}}
+    steps:
+      - name: return date
+        id: date_step
+        run: echo "date = $(date)" >> $GITHUB_OUTPUT
