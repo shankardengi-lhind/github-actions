@@ -11,14 +11,13 @@ jobs:
     uses: ./.github/workflows/workflow_output.yaml
     with:
       name: ${{inputs.name}}
-      secrets: inherit
+    secrets: inherit
   display_job:
     runs-on: ubuantu_latest
     needs: nested_workflow_calling
     steps:
       - name: display 
         run: |
-            echo '${{toJson(jobs)}}'
             echo  "displaying steps ${{toJson(steps)}}"
 
     
