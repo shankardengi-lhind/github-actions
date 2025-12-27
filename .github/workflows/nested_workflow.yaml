@@ -13,7 +13,7 @@ jobs:
       name: ${{inputs.name}}
     secrets: inherit
   display_job:
-    runs-on: ubuantu_latest
+    runs-on: ubuntu_latest
     needs: nested_workflow_calling
     steps:
       - name: display 
