@@ -18,6 +18,6 @@ jobs:
     steps:
       - name: display 
         run: |
-            echo  "displaying steps ${{toJson(steps)}}"
+            echo  "displaying steps ${{toJson(needs.nested_workflow_calling.outputs.date)}}"
 
     
