@@ -23,7 +23,7 @@ jobs:
       - name: displaying date
         run: echo "today date is :$(date)"
       - name: return date
-        id: date_step
         run: echo "date = $(date)" >> $GITHUB_OUTPUT
+        id: date_step
       - name: display output file
         run: cat $GITHUB_OUTPUT
