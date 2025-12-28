@@ -6,7 +6,16 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-      - name: install dependcencies
+      - name: cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-package
+      - name: display cache status
+        run: |
+          echo "cache status: ${{toJson(steps)}}"
+      - name: install dependencies
         run: |
           npm install
       - name: use axios to make api call
