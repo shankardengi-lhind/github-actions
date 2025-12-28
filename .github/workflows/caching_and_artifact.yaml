@@ -1,0 +1,20 @@
+name: Caching and Artifact Workflow
+on: [workflow_dispatch]
+jobs:
+  caching_and_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: install dependcencies
+        run: |
+          npm install
+      - name: use axios to make api call
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const axios = require('axios');
+            const response = await axios('https://icanhazdadjoke.com/', {
+            headers: { 'Accept': 'text/plain' }
+            });
+            console.log(response.data);
