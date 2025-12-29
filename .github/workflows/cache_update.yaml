@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-      - name: Use axios to make API calls
+      - name: Use axios to make API callss
         uses: actions/github-script@v6
         with:
           script: |
