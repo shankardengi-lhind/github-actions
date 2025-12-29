@@ -1,24 +1,24 @@
-name: Caching and Artifact Workflow
+name: Cache Update Workflow
 on: [workflow_dispatch]
 jobs:
-  caching_and_artifact:
-    runs-on: ubuntu-latestqwasqwq   
+  cache_update:
+    runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
-      - name: cache dependencies
-        id: cache
+      - name: Update cache
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: npm-package
-      - name: display cache status
+          key: ${{runner.os}}-npm-package-${{hashFiles('package-lock.json')}}
+          restore-keys: ${{runner.os}}-npm-package-
+      - name: Display cache status
         run: |
           echo "cache status: ${{toJson(steps)}}"
-      - name: install dependencies
+      - name: Install dependencies
         run: |
           npm install
-      - name: use axios to make api call
+      - name: Use axios to make API call
         uses: actions/github-script@v6
         with:
           script: |
