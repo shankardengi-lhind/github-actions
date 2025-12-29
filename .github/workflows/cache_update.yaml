@@ -4,9 +4,10 @@ jobs:
   cache_update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout codes
         uses: actions/checkout@v3
       - name: Update cache
+        id: id_cache
         uses: actions/cache@v3
         with:
           path: ~/.npm
@@ -18,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-      - name: Use axios to make API call
+      - name: Use axios to make API callss
         uses: actions/github-script@v6
         with:
           script: |
