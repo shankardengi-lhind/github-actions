@@ -1,0 +1,31 @@
+name: Upload and Download Artifact
+on: [workflow_dispatch]
+jobs:
+  upload_and_download_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Create a file
+        working-directory: ./temp
+        run: |
+          echo "This is a sample file for artifact upload and download" > sample.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./temp
+          name: uploaded-artifact
+          retention-days: 5
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: uploaded-artifact
+          path: ./downloaded-artifact
+      - name: List downloaded files
+        run: |
+          ls -R ./downloaded-artifact
+      - name: Display downloaded artifact
+        working-directory: ./downloaded-artifact
+        run: |
+          ls -a
