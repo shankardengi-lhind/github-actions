@@ -1,0 +1,29 @@
+name: Docker Steps Container
+on : [workflow_dispatch]
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    container: 
+      image: node:20.3-alpine3.17
+      env:
+          url: https://www.example.com
+      ports:
+          - 80
+    steps:
+      - name: version of main container
+        run: node -v
+      - name: steps docker 
+        uses: docker://node:18.16-alpine3.17
+        with:
+          entry-point: /opt/homebrew/bin/node
+          args: -p 2+3
+      - name: display release info
+        uses: docker://node:18.17-alpine3.17
+        with:
+          args: -v
+
+
+   
+          
+
