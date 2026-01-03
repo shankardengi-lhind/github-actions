@@ -1,0 +1,26 @@
+name: Docker Steps Container
+on : [workflow_dispatch]
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    container: 
+      image: node:20.3-alpine3.17
+      env:
+          url: https://www.example.com
+      ports:
+          - 80
+    steps:
+      - name: version of main container
+        run: node -v
+      - name:  display os release info
+        run: |
+            node -v
+            cat /etc/os-release
+      - name: display url env variable
+        run: echo "the url is $url"
+
+
+   
+          
+
