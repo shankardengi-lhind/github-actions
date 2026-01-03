@@ -13,15 +13,12 @@ jobs:
     steps:
       - name: version of main container
         run: node -v
-      - name: steps docker 
-        uses: docker://node:18.16-alpine3.17
-        with:
-          entry-point: /opt/homebrew/bin/node
-          args: -p 2+3
-      - name: display release info
-        uses: docker://node:18.17-alpine3.17
-        with:
-          args: -v
+      - name:  display os release info
+        run: |
+            node -v
+            cat /etc/os-release
+      - name: display url env variable
+        run: echo "the url is $url"
 
 
    
