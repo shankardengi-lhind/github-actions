@@ -44,4 +44,4 @@ jobs:
       - name: show list of files (docker action)
         run: ls -a /__w/github-actions/github-actions/
       - name: show file contents
-        run: cat /github/workspace/temp.txt
+        run: cat /__w/github-actions/github-actions/temp.txt
