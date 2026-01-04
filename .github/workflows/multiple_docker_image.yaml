@@ -39,8 +39,9 @@ jobs:
         uses: docker://node:18.16-alpine3.17
         with:
          entrypoint: sh
-         args: -lc 'echo "this is simple file" > temp.txt && cat temp.txt'
+         args: -lc "echo 'this is simple file' > /github/workspace/temp.txt"
+
       - name: show list of files (docker action)
         run: ls -a /__w
-      - name : show file contents
-        run: cat temp.txt
+      - name: show file contents
+        run: cat /github/workspace/temp.txt
