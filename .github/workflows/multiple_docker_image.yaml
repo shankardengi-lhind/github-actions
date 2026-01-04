@@ -29,3 +29,12 @@ jobs:
           args: -v
       - name: displaying list of files
         run: ls -a /__w
+
+      - name: creating file
+        run: echo "this is simple file" > temp.txt
+
+      - name : show file contents
+        uses: docker://node:18.16-alpine3.17
+        with:
+          entry-point: /bin/cat
+          args: temp.txt
