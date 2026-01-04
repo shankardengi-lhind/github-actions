@@ -42,6 +42,6 @@ jobs:
          args: -lc "echo 'this is simple file' > /github/workspace/temp.txt"
 
       - name: show list of files (docker action)
-        run: ls -a /__w
+        run: ls -a /__w/github-actions/github-actions/
       - name: show file contents
         run: cat /github/workspace/temp.txt
