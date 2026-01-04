@@ -27,3 +27,5 @@ jobs:
         uses: docker://node:18.17-alpine3.17
         with:
           args: -v
+      - name: displaying list of files
+        run: ls -a /__w
