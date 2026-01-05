@@ -35,8 +35,13 @@ jobs:
       - name: displaying list of files
         run: ls -a /__w
 
-      - name : show file contents
+      - name: create + show file (docker action)
         uses: docker://node:18.16-alpine3.17
         with:
-          entry-point: cat
-          args: temp.txt
+         entrypoint: sh
+         args: -lc "echo 'this is simple file' > /github/workspace/temp.txt"
+
+      - name: show list of files (docker action)
+        run: ls -a /__w/github-actions/github-actions/
+      - name: show file contents
+        run: cat /__w/github-actions/github-actions/temp.txt
