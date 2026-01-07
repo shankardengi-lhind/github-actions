@@ -1,0 +1,17 @@
+name : greet action
+description : 'A simple greeting action'
+inputs:
+  who-to-greet:
+    description : 'The name of the person to greet'
+    required : true
+    default : 'World'
+outputs: 
+  date:
+    description : 'The date we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'
+  pre: start.js
+  pre-if: runner.os == 'Linux'
+  post: cleanup.js
+  post-if: runner.os == 'Linux'
