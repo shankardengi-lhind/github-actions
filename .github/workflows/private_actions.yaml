@@ -22,4 +22,4 @@ jobs:
       - name: display environment variable set by action
         run: |
             echo ${{env.HELLO-TIME}}
-            echo "$HELLO-TIME"
+            echo $HELLO-TIME
