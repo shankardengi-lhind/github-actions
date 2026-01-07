@@ -10,7 +10,7 @@ outputs:
     description : 'The date we greeted you'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
   pre: start.js
   pre-if: runner.os == 'Linux'
   post: cleanup.js
