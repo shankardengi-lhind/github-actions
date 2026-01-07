@@ -8,7 +8,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: list files
-        run: ls -al ./.github/actions/greet
+        run: |
+            pwd
+            ls -la
       - name: Greet using private action
         id: greet
         uses: ./.github/actions/greet
