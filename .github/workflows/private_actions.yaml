@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v3
+
+      - name: list files
+        run: ls -al ./.github/actions/greet
       - name: Greet using private action
         id: greet
         uses: ./.github/actions/greet
