@@ -10,13 +10,10 @@ jobs:
       - name: list files
         run: |
             pwd
-            ls -la .github/actions/greet
-            ls -la ./
-            ls -la ../
 
       - name: Greet using private action
         id: greet
-        uses: ../.github/actions/greet
+        uses: ./.github/actions/greet
         with:
           name: Shankar
       - name: show greeting date
