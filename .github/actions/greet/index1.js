@@ -15,7 +15,7 @@ const date = new Date()
 
 core.setOutput('date', date.toTimeString())
 
-core.exportVariable("HELLO-TIME", date)
+core.exportVariable("HELLO_TIME", date)
 
 } catch (error) {
 core.setFailed(error.message)

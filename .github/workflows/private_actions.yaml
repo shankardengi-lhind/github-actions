@@ -21,5 +21,6 @@ jobs:
 
       - name: display environment variable set by action
         run: |
-            echo ${{env.HELLO-TIME}}
-            echo $HELLO-TIME
+            echo ${{env.HELLO_TIME}}
+            echo $HELLO_TIME
+            echo "testing ${HELLO_TIME}"
