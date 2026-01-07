@@ -15,9 +15,9 @@ jobs:
         id: greet
         uses: ./.github/actions/greet
         with:
-          name: Shankar
+          who-to-greet: Shankar
       - name: show greeting date
-        run: echo "'${{fromJson(steps.greet.outputs.date)}}'"
+        run: echo '${{toJson(steps)}}'
 
       - name: display environment variable set by action
-        run: echo "${env.Hello-Time}
+        run: echo "${env.HELLO-TIME}"

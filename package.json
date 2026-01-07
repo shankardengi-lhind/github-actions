@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/shankardengi-lhind/github-actions#readme",
   "dependencies": {
+    "@actions/core": "^2.0.1",
+    "@actions/github": "^6.0.1",
     "axios": "^1.13.2",
     "loadash": "^1.0.0",
     "moment": "^2.30.1"
