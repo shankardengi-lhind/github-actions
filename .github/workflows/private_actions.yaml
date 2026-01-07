@@ -13,7 +13,7 @@ jobs:
 
       - name: Greet using private action
         id: greet
-        uses: ./.github/actions/greet
+        uses: ./github/actions/greet
         with:
           who-to-greet: Shankar
       - name: show greeting date
