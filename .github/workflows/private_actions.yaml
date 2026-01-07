@@ -20,4 +20,6 @@ jobs:
         run: echo '${{toJson(steps)}}'
 
       - name: display environment variable set by action
-        run: echo "$HELLO-TIME"
+        run: |
+            echo ${{env}}
+            echo "$HELLO-TIME"
