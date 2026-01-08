@@ -1,0 +1,48 @@
+name: composit actin to tell a joke
+description: This action tells a joke using a composite action.
+inputs:
+  funny_joke:
+    description: A keyword to get a funny joke.
+    required: true
+    default: "false"
+  upload_joke:
+    description: A flag to upload the joke to a server.
+    required: false
+    default: "false"
+outputs:
+  joke_output:
+    description: The joke that was told.
+    value: ${{steps.tell_joke.outputs.joke}}
+runs:
+  using: "composite"
+  steps:
+    - name: Tell a joke
+      if: ${{inputs.funny_joke == 'true'}}
+      shell: bash
+      id: tell_joke
+      run: |
+        delimiter="123456789"
+        echo "joke <<$delimiter" >> $GITHUB_OUTPUT
+        curl -s https://icanhazdadjoke.com/ >> $GITHUB_OUTPUT
+        echo "Why don't scientists trust atoms? Because they make up everything!" >> $GITHUB_OUTPUT
+        echo "joke" >> $GITHUB_OUTPUT
+        echo "$delimiter" >> $GITHUB_OUTPUT
+    - name: Genrate Joke file
+      if: ${{inputs.upload_joke == 'true'}}
+      id: upload_joke_step
+      run: |
+        echo "${{steps.tell_joke.outputs.joke}}" > joke.txt
+        echo "Joke saved to joke.txt"
+    - name: Upload joke
+      if: ${{inputs.upload_joke == 'true'}}
+      uses: actions/upload-artifact@v3
+      with:
+        name: joke-artifact
+        path: joke.txt
+    - name: Set joke output
+      id: set_joke_outpt
+      if: ${{inputs.funny_joke=='true' }}
+      env: 
+        Hello: ${{inputs.funny_joke && "test" || "no_test"}}
+      run: |
+        echo ${{env.Hello}}

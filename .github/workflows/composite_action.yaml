@@ -1,0 +1,17 @@
+name: Composite Action Workflow
+on: [push]
+jobs:
+  composite_action_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3   
+      - name: Call Docker Hello World Action
+        id: docker_hello_world_action
+        uses: ./.github/actions/joke
+        with:
+          funny_joke: "true"
+          upload_joke: "true"
+      - name: Get output
+        run: |
+          echo "joke told : ${{steps.docker_hello_world_action}}"
