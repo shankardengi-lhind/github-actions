@@ -17,5 +17,5 @@ jobs:
           echo "Greeting made on : ${{toJson(steps)}}"
       - name: show log on docker
         run: |
-            echo " greeting made on ${{env.HELLO_TIME}}"
+            echo " greetings made on ${{env.Hello_time}}"
             echo "greeting made on $Hello_time"

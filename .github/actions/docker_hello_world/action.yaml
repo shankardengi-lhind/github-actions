@@ -13,4 +13,7 @@ runs:
   image: "dockerfile"
   args:
     - ${{ inputs.greet_hello }}
-  
+  env:
+    Hello: World
+  post-entrypoint: "/clean.sh"
+  post-if: "runner.os == 'Linux'"
