@@ -27,22 +27,22 @@ runs:
         echo "Why don't scientists trust atoms? Because they make up everything!" >> $GITHUB_OUTPUT
         echo "joke" >> $GITHUB_OUTPUT
         echo "$delimiter" >> $GITHUB_OUTPUT
-    - name: Genrate Joke file
-      if: ${{inputs.upload_joke == 'true'}}
+    - name: Generate Joke file
+      shell: bash
       id: upload_joke_step
       run: |
         echo "${{steps.tell_joke.outputs.joke}}" > joke.txt
         echo "Joke saved to joke.txt"
     - name: Upload joke
-      if: ${{inputs.upload_joke == 'true'}}
       uses: actions/upload-artifact@v3
       with:
         name: joke-artifact
         path: joke.txt
     - name: Set joke output
-      id: set_joke_outpt
+      shell: bash
+      id: set_joke_output
       if: ${{inputs.funny_joke=='true' }}
       env: 
-        Hello: ${{inputs.funny_joke && "test" || "no_test"}}
+        Hello: "test"
       run: |
         echo ${{env.Hello}}
