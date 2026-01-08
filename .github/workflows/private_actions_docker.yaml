@@ -1,0 +1,13 @@
+name: Private Actions Docker
+on: [ push ]
+jobs:
+  privaita_acrions_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: calling private action
+        uses: ./.github/actions/docker_hello_world
+        with:
+          greet_hello: "shankar"

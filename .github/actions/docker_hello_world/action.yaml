@@ -1,0 +1,16 @@
+name: Docker Hello World Action
+description: A simple Docker action that greets the user.
+inputs:
+  greet_hello:
+    description: The name to greet.
+    required: true
+    default: "World"
+outputs:
+  date:
+    description: the date when the greeting was made.
+runs:
+  using: "docker"
+  image: "dockerfile"
+  args:
+    - ${{ inputs.greet_hello }}
+  
