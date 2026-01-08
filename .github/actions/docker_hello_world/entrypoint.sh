@@ -1,7 +1,8 @@
 #!/bin/sh
 echo "$1"
 echo "starting entrypoint shell script"
-echo ${INPUT_greet_hello}
+echo "input_greet_hello:$INPUT_greet_hello"
 date=$(date)
-echo "date=${date}" >> $GITHUB_OUTPUT
+echo "date=$date" >> $GITHUB_OUTPUT
+echo "Hello_time=$date" >> $GITHUB_ENV
 echo "finished entrypoint shell script"
