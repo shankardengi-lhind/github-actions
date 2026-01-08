@@ -34,7 +34,7 @@ runs:
         echo "${{steps.tell_joke.outputs.joke}}" > joke.txt
         echo "Joke saved to joke.txt"
     - name: Upload joke
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: joke-artifact
         path: joke.txt
