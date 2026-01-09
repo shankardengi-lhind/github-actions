@@ -37,4 +37,12 @@ runs:
         name: joke-artifact
         path: joke.txt
 
+    - name: testing turnury operator
+      shell: bash
+      id: turnury_tes
+      env:
+        Hello: ${{ inputs.funny_joke == 'true' && 'funny' || 'not_funny' }}
+      run: |
+        echo "Joke type: ${{env.Hello}}"
+
     
