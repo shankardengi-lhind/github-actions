@@ -25,4 +25,16 @@ runs:
         curl -s https://icanhazdadjoke.com/ >> $GITHUB_OUTPUT
         echo "" >> $GITHUB_OUTPUT
         echo "$eof" >> $GITHUB_OUTPUT
+    - name: write to file
+      shell: bash
+      run: |
+        echo "${{steps.tell_joke.outputs.joke}}" > joke.txt
+        
+    - name: Upload joke
+      if: ${{inputs.upload_joke == 'true'}}
+      uses: actions/upload-artifact@v4
+      with:
+        name: joke-artifact
+        path: joke.txt
+
     
