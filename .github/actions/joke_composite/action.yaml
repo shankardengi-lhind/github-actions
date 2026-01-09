@@ -23,5 +23,6 @@ runs:
         eof="123456789"
         echo "joke<<$eof" >> $GITHUB_OUTPUT
         curl -s https://icanhazdadjoke.com/ >> $GITHUB_OUTPUT
+        echo "" >> $GITHUB_OUTPUT
         echo "$eof" >> $GITHUB_OUTPUT
     
