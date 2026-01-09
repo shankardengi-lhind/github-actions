@@ -20,7 +20,8 @@ runs:
       shell: bash
       id: tell_joke
       run: |
-        echo "genrating joke"
-        echo " curl -s https://icanhazdadjoke.com/"
-        echo "joke=hello" >> $GITHUB_OUTPUT
+        eof="123456789"
+        echo "joke<<<$eof" >> $GITHUB_OUTPUT
+        curl -s https://icanhazdadjoke.com/ >> $GITHUB_OUTPUT
+        echo "$eof" >> $GITHUB_OUTPUT
     
