@@ -11,7 +11,7 @@ jobs:
         uses: ./.github/actions/joke_composite
         with:
           funny_joke: "true"
-          upload_joke: "true"
+          upload_joke: "false"
       - name: Get output
         run: | 
           echo "joke told : ${{steps.joke_composite_action.outputs.joke_output}}"
