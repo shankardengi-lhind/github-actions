@@ -41,7 +41,7 @@ runs:
       shell: bash
       id: turnury_tes
       env:
-        Hello: ${{ inputs.funny_joke == 'true' && 'funny' || 'not_funny' }}
+        Hello: ${{ inputs.upload_joke == 'true' && 'funny' || 'not_funny' }}
       run: |
         echo "Joke type: ${{env.Hello}}"
 
