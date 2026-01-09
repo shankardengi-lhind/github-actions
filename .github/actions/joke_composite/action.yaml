@@ -1,0 +1,26 @@
+name: Joke Composite Action
+description: This action tells a joke using a composite action.
+inputs:
+  funny_joke:
+    description: A keyword to get a funny joke.
+    required: true
+    default: "false"
+  upload_joke:
+    description: A flag to upload the joke to a server.
+    required: false
+    default: "false"
+outputs:
+  joke_output:
+    description: The joke that was told.
+    value: ${{steps.tell_joke.outputs.joke}}
+runs:
+  using: "composite"
+  steps: 
+    - name: Tell a joke
+      shell: bash
+      id: tell_joke
+      run: |
+        echo "genrating joke"
+        echo " curl -s https://icanhazdadjoke.com/"
+        echo "joke=hello" >> $GITHUB_OUTPUT
+    
